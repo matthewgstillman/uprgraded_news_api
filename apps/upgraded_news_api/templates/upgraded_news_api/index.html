@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Home</title>
+{% endblock%}
+
+
+{% block content %}
+<div class="container">
+    <h1>News API</h1>
+    <h2>Top Headlines</h2>
+    <a href="/bbc">Click Here for BBC Articles</a><br>
+    <a href="/foxnews">Click Here for Fox News Articles</a><br>
+    <a href="/nytimes">Click Here for New York Times Articles</a>
+    {% for news in news_data.articles %}
+                <h1>{{ news.description }} </h1>
+                <h3>{{ news.title }}</h3>
+                <img src="{{ news.urlToImage }}" alt="Article Image" height="400" width="auto" class="image">
+                <h5>Published {{ news.publishedAt|date }}</h5>
+                <h6>{{ news.source.name }} </h6>
+            <a href="{{ news.url }}">{{ news.description }}</a>
+            <br>
+            <hr>
+    {% endfor%}
+</div>
+{% endblock %}

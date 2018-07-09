@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Fox News</title>
+{% endblock%}
+
+
+{% block content %}
+<div class="container">
+    <h1>Fox News API</h1>
+    {% load static %}
+    <img src="{% static 'fox_news_logo.png' %}" alt="BBC Logo" class="image">
+    <h2>Top Headlines</h2>
+    <!--news_data.articles not working right - news_data retrieving some information-->
+    {% for news in bbc_news_data.articles %}
+                <h1>{{ news.description }} </h1>
+                <h3>{{ news.title }}</h3>
+                <img src="{{ news.urlToImage }}" alt="Article Image" height="400" width="auto" class="image">
+                <h5>Published {{ news.publishedAt|date }}</h5>
+                <h6>{{ news.source.name }} </h6>
+            <a href="{{ news.url }}">{{ news.description }}</a>
+            <br>
+            <hr>
+    {% endfor%}
+</div>
+<a href="/">Go Back</a>
+{% endblock %}
