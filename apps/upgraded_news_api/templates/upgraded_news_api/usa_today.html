@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>New York Times</title>
+<title>USA Today</title>
 {% endblock%}
 
 
 {% block content %}
 <div class="container">
-    <h1>New York Times API</h1>
+    <h1>USA Today API</h1>
     {% load static %}
-    <img src="{% static 'ny_times.png' %}" alt="NY Times Logo" class="image">
+    <img src="{% static 'usatoday.jpeg' %}" alt="USA TODAY Logo" class="image">
+    <br>
     <h2>Top Headlines</h2>
-    <!--news_data.articles not working right - news_data retrieving some information-->
-    {% for news in ny_times_news_data.articles %}
+    {% for news in usa_today_news_data.articles %}
                 <h1>{{ news.title.title }}</h1>
                 <h3>{{ news.description.title }}</h3>
                 <img src="{{ news.urlToImage }}" alt="Article Image" height="400" width="auto" class="image">

@@ -10,10 +10,11 @@
     <h1>BBC News API</h1>
     {% load static %}
     <img src="{% static 'bbc_logo.png' %}" alt="BBC Logo" class="image">
+    <br>
     <h2>Top Headlines</h2>
     {% for news in bbc_news_data.articles %}
-                <h1>{{ news.description }} </h1>
-                <h3>{{ news.title }}</h3>
+                <h1>{{ news.title.title }}</h1>
+                <h3>{{ news.description.title }}</h3>
                 <img src="{{ news.urlToImage }}" alt="Article Image" height="400" width="auto" class="image">
                 <h5>Published {{ news.publishedAt|date }}</h5>
                 <h6>{{ news.source.name }} </h6>
