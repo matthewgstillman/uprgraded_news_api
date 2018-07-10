@@ -34,6 +34,21 @@ def abc(request):
     }
     return render(request, 'upgraded_news_api/abc.html', context)
 
+def ap(request):
+    url = ('https://newsapi.org/v2/top-headlines?'
+       'sources=associated-press&'
+       'apiKey=8c10097819d448beab0f6ac908990fa5')
+    response = requests.get(url)
+    ap_news_data = response.json()
+    ap_articles = ap_news_data['articles']
+    print(ap_articles)
+    context = {
+        'ap_articles': ap_articles,
+        'ap_news_data': ap_news_data,
+        'response': response,
+    }
+    return render(request, 'upgraded_news_api/ap.html', context)
+
 def bbc(request):
     url = ('https://newsapi.org/v2/top-headlines?'
        'sources=bbc-news&'
@@ -48,6 +63,21 @@ def bbc(request):
         'response': response,
     }
     return render(request, 'upgraded_news_api/bbc.html', context)
+
+def bleacherreport(request):
+    url = ('https://newsapi.org/v2/top-headlines?'
+       'sources=bleacher-report&'
+       'apiKey=8c10097819d448beab0f6ac908990fa5')
+    response = requests.get(url)
+    bleacher_report_news_data = response.json()
+    bleacher_report_articles = bleacher_report_news_data['articles']
+    print(bleacher_report_articles)
+    context = {
+        'bleacher_report_articles': bleacher_report_articles,
+        'bleacher_report_news_data': bleacher_report_news_data,
+        'response': response,
+    }
+    return render(request, 'upgraded_news_api/bleacherreport.html', context)
 
 def bloomberg(request):
     url = ('https://newsapi.org/v2/top-headlines?'
@@ -142,6 +172,20 @@ def usatoday(request):
     }
     return render(request, 'upgraded_news_api/usa_today.html', context)
 
+def wsj(request):
+    url = ('https://newsapi.org/v2/top-headlines?'
+       'sources=the-wall-street-journal&'
+       'apiKey=8c10097819d448beab0f6ac908990fa5')
+    response = requests.get(url)
+    wsj_news_data = response.json()
+    wsj_articles = wsj_news_data['articles']
+    print(wsj_articles)
+    context = {
+        'wsj_articles': wsj_articles,
+        'wsj_news_data': wsj_news_data,
+        'response': response
+    }
+    return render(request, 'upgraded_news_api/wsj.html', context)
 
 def wapost(request):
     url = ('https://newsapi.org/v2/top-headlines?'
