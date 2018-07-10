@@ -4,6 +4,7 @@ urlpatterns = [
     url(r'^$', views.index, name="index"),
     url(r'^abc$', views.abc, name="abc"),
     url(r'^bbc$', views.bbc, name="bbc"),
+    url(r'^bloomberg$', views.bloomberg, name="bloomberg"),
     url(r'^cnn$', views.cnn, name="cnn"),
     url(r'^foxnews$', views.foxnews, name="foxnews"),
     url(r'^nytimes$', views.nytimes, name="nytimes"),

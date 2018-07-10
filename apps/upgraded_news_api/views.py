@@ -49,6 +49,21 @@ def bbc(request):
     }
     return render(request, 'upgraded_news_api/bbc.html', context)
 
+def bloomberg(request):
+    url = ('https://newsapi.org/v2/top-headlines?'
+       'sources=bloomberg&'
+       'apiKey=8c10097819d448beab0f6ac908990fa5')
+    response = requests.get(url)
+    bloomberg_news_data = response.json()
+    bloomberg_articles = bloomberg_news_data['articles']
+    print(bloomberg_articles)
+    context = {
+        'bloomberg_articles': bloomberg_articles,
+        'bloomberg_news_data': bloomberg_news_data,
+        'response': response,
+    }
+    return render(request, 'upgraded_news_api/bloomberg.html', context)
+
 
 def cnn(request):
     url = ('https://newsapi.org/v2/top-headlines?'
