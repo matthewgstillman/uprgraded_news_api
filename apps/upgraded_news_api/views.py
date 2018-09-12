@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
 import requests, datetime
+from api_key import api_key
 # Create your views here.
 def index(request):
-    url = ('https://newsapi.org/v2/top-headlines?'
+    url = ('https://newsapi.org/v2/top-headlines?',
        'country=us&'
        'apiKey=8c10097819d448beab0f6ac908990fa5')
     response = requests.get(url)
     news_data = response.json()
     articles = news_data['articles']
-    # print news_source
     print(articles)
     # print news_data.json()
     context = {

@@ -25,7 +25,7 @@
                 <h1>{{ news.title.title }}</h1>
                 <h3>{{ news.description.title }}</h3>
                 <img src="{{ news.urlToImage }}" alt="Article Image" height="400" width="auto" class="image">
-                <h5>Published {{ news.publishedAt }}</h5>
+                <h5>Published: {{ news.publishedAt }}</h5>
                 <h6>{{ news.source.name }} </h6>
             <a href="{{ news.url }}">{{ news.description }}</a>
             <br>
